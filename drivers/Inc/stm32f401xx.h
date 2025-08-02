@@ -246,4 +246,13 @@ typedef struct
  *  Clock Disable Macros for SYSCFG peripharals
  */
 
+//Some generic macros
+
+#define ENABLE 					1
+#define DISABLE 				0
+#define SET 					ENABLE
+#define RESET 					DISABLE
+#define GPIO_PIN_SET			SET
+#define GPIO_PIN_RESET			RESET
+
 #endif /* INC_STM32F401XX_H_ */
