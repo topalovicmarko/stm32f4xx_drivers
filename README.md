@@ -13,27 +13,32 @@ This repository contains bare-metal drivers for STM32F4xx microcontrollers writt
 
 ## Project Structure
 
+```text
 stm32f4xx_drivers/
 │
-├── 📂 drivers/ # Peripheral driver implementations
-│ ├── 📂 inc/ # Header files (.h)
-│ │ ├── stm32f401xx_gpio_driver.h
-│ │ ├── stm32f401xx_i2c_driver.h
-│ │ ├── stm32f401xx_spi_driver.h
-│ │ ├── stm32f401xx_usart_driver.h
-│ │ └── stm32f401xx.h # MCU header
-│ │
-│ └── 📂 src/ # Source files (.c)
-│ ├── stm32f401xx_gpio_driver.c
-│ ├── stm32f401xx_i2c_driver.c
-│ ├── stm32f401xx_spi_driver.c
-│ └── stm32f401xx_usart_driver.c
+├── 📁 drivers/                  # Peripheral driver implementations
+│   │
+│   ├── 📁 inc/                  # Header files (.h)
+│   │   ├── 🟣 stm32f401xx_gpio_driver.h
+│   │   ├── 🔵 stm32f401xx_i2c_driver.h
+│   │   ├── 🟢 stm32f401xx_spi_driver.h
+│   │   ├── 🟠 stm32f401xx_usart_driver.h
+│   │   └── 🔴 stm32f401xx.h     # MCU header file
+│   │
+│   └── 📁 src/                  # Source implementations (.c)
+│       ├── 🟣 stm32f401xx_gpio_driver.c
+│       ├── 🔵 stm32f401xx_i2c_driver.c
+│       ├── 🟢 stm32f401xx_spi_driver.c
+│       └── 🟠 stm32f401xx_usart_driver.c
 │
-├── 📂 src/ # Example applications
-│ ├── 001_led_toggle/ # Basic GPIO output
-│ ├── 002_led_button/ # GPIO input/output
-│ ├── 003_led_button_ext/ # External interrupt
-│ └── 004_button_interrupt/ # NVIC interrupt
+├── 📁 src/                      # Example applications
+│   ├── 1️⃣ 001_led_toggle/       # Basic GPIO output
+│   ├── 2️⃣ 002_led_button/        # GPIO input/output
+│   ├── 3️⃣ 003_led_button_ext/    # External interrupt
+│   └── 4️⃣ 004_button_interrupt/  # NVIC interrupt handling
+│
+├── 📄 Makefile                  # Build configuration
+└── 📄 README.md                 # Project documentation
 
 ## Getting Started
 
