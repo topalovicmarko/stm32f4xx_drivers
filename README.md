@@ -29,6 +29,7 @@ stm32f4xx_drivers/
 │   └── 4️⃣ 004_button_interrupt/  # NVIC interrupt handling
 │
 └── 📄 README.md                 # Project documentation
+```
 
 ## Getting Started
 
