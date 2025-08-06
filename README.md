@@ -5,9 +5,6 @@ This repository contains bare-metal drivers for STM32F4xx microcontrollers writt
 
 ## Features
 - **GPIO Driver**: Pin configuration, digital I/O, interrupt handling
-- **I2C Driver**: Master/slave modes, interrupt/DMA support  
-- **SPI Driver**: Full-duplex communication, various modes
-- **USART Driver**: Asynchronous/synchronous communication
 - **Register-level access**: Direct hardware control
 - **Minimal dependencies**: No external libraries required
 
@@ -20,16 +17,10 @@ stm32f4xx_drivers/
 │   │
 │   ├── 📁 inc/                  # Header files (.h)
 │   │   ├── 🟣 stm32f401xx_gpio_driver.h
-│   │   ├── 🔵 stm32f401xx_i2c_driver.h
-│   │   ├── 🟢 stm32f401xx_spi_driver.h
-│   │   ├── 🟠 stm32f401xx_usart_driver.h
 │   │   └── 🔴 stm32f401xx.h     # MCU header file
 │   │
 │   └── 📁 src/                  # Source implementations (.c)
-│       ├── 🟣 stm32f401xx_gpio_driver.c
-│       ├── 🔵 stm32f401xx_i2c_driver.c
-│       ├── 🟢 stm32f401xx_spi_driver.c
-│       └── 🟠 stm32f401xx_usart_driver.c
+│       └── 🟣 stm32f401xx_gpio_driver.c
 │
 ├── 📁 src/                      # Example applications
 │   ├── 1️⃣ 001_led_toggle/       # Basic GPIO output
@@ -37,7 +28,6 @@ stm32f4xx_drivers/
 │   ├── 3️⃣ 003_led_button_ext/    # External interrupt
 │   └── 4️⃣ 004_button_interrupt/  # NVIC interrupt handling
 │
-├── 📄 Makefile                  # Build configuration
 └── 📄 README.md                 # Project documentation
 
 ## Getting Started
