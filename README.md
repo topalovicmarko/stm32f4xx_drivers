@@ -16,11 +16,13 @@ stm32f4xx_drivers/
 ├── 📁 drivers/                  # Peripheral driver implementations
 │   │
 │   ├── 📁 inc/                  # Header files (.h)
-│   │   ├── 🟣 stm32f401xx_gpio_driver.h
-│   │   └── 🔴 stm32f401xx.h     # MCU header file
+│   │   ├── 🔴 stm32f401xx_gpio_driver.h
+│   │   ├── 🔴 stm32f401xx.h     # MCU header file
+│   │   └── 🔴 stm32f401xx_spi_sriver.h
 │   │
 │   └── 📁 src/                  # Source implementations (.c)
-│       └── 🟣 stm32f401xx_gpio_driver.c
+│       ├── 🟣 stm32f401xx_gpio_driver.c
+│       └── 🟣 stm32f401xx_spi_driver.c
 │
 ├── 📁 src/                      # Example applications
 │   ├── 1️⃣ 001_led_toggle/       # Basic GPIO output
