@@ -2,7 +2,7 @@
  * 004button_interrupt.c
  *
  *  Created on: Aug 5, 2025
- *      Author: marko
+ *      Author: Marko Topalović
  */
 
 #include<string.h>

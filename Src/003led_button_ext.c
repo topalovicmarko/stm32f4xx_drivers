@@ -2,7 +2,7 @@
  * 003led_button_ext.c
  *
  *  Created on: Aug 4, 2025
- *      Author: marko
+ *      Author: Marko Topalović
  */
 
 #include "stm32f401xx.h"
