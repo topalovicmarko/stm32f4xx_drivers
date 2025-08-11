@@ -250,6 +250,7 @@ typedef struct
 #define SPI1		((SPI_RegDef_t*)SPI1_BASEADDR)
 #define SPI2		((SPI_RegDef_t*)SPI2_BASEADDR)
 #define SPI3		((SPI_RegDef_t*)SPI3_BASEADDR)
+#define SPI4		((SPI_RegDef_t*)SPI4_BASEADDR)
 
 /*
  *  Clock Enable Macros for GPIOx peripharals
@@ -328,6 +329,7 @@ typedef struct
 #define SPI1_PCLK_DI()		( RCC->APB2ENR &= ~(1 << 12) )
 #define SPI2_PCLK_DI()		( RCC->APB1ENR &= ~(1 << 14) )
 #define SPI3_PCLK_DI()		( RCC->APB1ENR &= ~(1 << 15) )
+#define SPI4_PCLK_DI()		( RCC->APB2ENR &= ~(1 << 13) )
 
 /*
  *  Clock Disable Macros for USARTx peripharals
@@ -396,6 +398,50 @@ typedef struct
 #define GPIO_PIN_SET			SET
 #define GPIO_PIN_RESET			RESET
 
+/*
+ *Bit position definitions of SPI_CR1 peipheral
+*/
+#define SPI_CR1_CPHA			0
+#define SPI_CR1_CPOL			1
+#define SPI_CR1_MSTR			2
+#define SPI_CR1_BR				3
+#define SPI_CR1_SPE				6
+#define SPI_CR1_LSBFISRT		7
+#define SPI_CR1_SSI				8
+#define SPI_CR1_SSM				9
+#define SPI_CR1_RXONLY			10
+#define SPI_CR1_DFF				11
+#define SPI_CR1_CRCNEXT			12
+#define SPI_CR1_CRCEN			13
+#define SPI_CR1_BIDIOE			14
+#define SPI_CR1_BIDIMODE		15
+
+/*
+ *Bit position definitions of SPI_CR2 peipheral
+*/
+#define SPI_CR2_RXDMAEN			0
+#define SPI_CR2_TXDMAEN			1
+#define SPI_CR2_SSOE			2
+#define SPI_CR2_FRF				4
+#define SPI_CR2_ERRIE			5
+#define SPI_CR2_RXEIE			6
+#define SPI_CR2_TXEIE			7
+
+/*
+ *Bit position definitions of SPI_SR peipheral
+*/
+#define SPI_SR_RXNE				0
+#define SPI_SR_TXE				1
+#define SPI_SR_CHSIDE			2
+#define SPI_SR_UDR				3
+#define SPI_SR_CRCERR			4
+#define SPI_SR_MODF				5
+#define SPI_SR_OVR				6
+#define SPI_SR_BSY				7
+#define SPI_SR_FRE				8
+
+
 #include "stm32f401xx_gpio_driver.h"
+#include "stm32f401xx_spi_driver.h"
 
 #endif /* INC_STM32F401XX_H_ */

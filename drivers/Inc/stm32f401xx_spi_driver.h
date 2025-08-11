@@ -5,8 +5,10 @@
  *      Author: Marko Topalović
  */
 
-#ifndef INC_STM32F401XX_SPI_SRIVER_H_
-#define INC_STM32F401XX_SPI_SRIVER_H_
+#ifndef INC_STM32F401XX_SPI_DRIVER_H_
+#define INC_STM32F401XX_SPI_DRIVER_H_
+
+#include "stm32f401xx.h"
 
 /*
  * Configuration structure for SPIx peripheral
@@ -30,8 +32,59 @@ typedef struct
 typedef struct
 {
 	SPI_RegDef_t	*pSPIx;		/*!< This holds the base address of SPIx(x:0,1,2) peripherals >*/
-	SPI_RegDef_t	SPIConfig;
+	SPI_Config_t	SPIConfig;
 }SPI_Handle_t;
+
+/*
+ * @SPI_DeviceMode
+ */
+#define SPI_DEVICE_MODE_MASTER					1
+#define SPI_DEVICE_MODE_SLAVE					0
+
+/*
+ * @SPI_BusConfig
+ */
+#define SPI_BUS_CONFIG_FD						1
+#define SPI_BUS_CONFIG_HD						2
+#define SPI_BUS_CONFIG_SIMPLEX_RXONLY			3
+
+/*
+ * @SPI_SclkSpeed
+ */
+#define SPI_SCLK_SPEED_DIV2						0
+#define SPI_SCLK_SPEED_DIV4						1
+#define SPI_SCLK_SPEED_DIV8						2
+#define SPI_SCLK_SPEED_DIV16					3
+#define SPI_SCLK_SPEED_DIV32					4
+#define SPI_SCLK_SPEED_DIV64					5
+#define SPI_SCLK_SPEED_DIV128					6
+#define SPI_SCLK_SPEED_DIV256					7
+
+/*
+ * @SPI_DFF
+ */
+#define SPI_DFF_8BITS							0				//DEFAULT
+#define SPI_DFF_16BITS							1
+
+/*
+ * @SPI_CPOL
+ */
+#define SPI_CPOL_HIGH 							1
+#define SPI_CPOL_LOW 							0
+
+/*
+ * @SPI_CPHA
+ */
+
+#define SPI_CPHA_HIGH 							1
+#define SPI_CPHA_LOW 							0
+
+/*
+ * @SPI_SSM
+ */
+
+#define SPI_SSM_EN 								1
+#define SPI_SSM_DI								0				//DEFAULT
 
 /*************************************************************************************************
  * 								APIs supported by this driver
@@ -68,4 +121,4 @@ void SPI_IRQHandling(SPI_Handle_t *pHandle);
  * Other Peripheral Control APIs
  */
 
-#endif /* INC_STM32F401XX_SPI_SRIVER_H_ */
+#endif /* INC_STM32F401XX_SPI_DRIVER_H_ */
