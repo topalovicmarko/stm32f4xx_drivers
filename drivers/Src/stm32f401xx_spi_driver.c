@@ -82,6 +82,9 @@ void SPI_PeriClockControl(SPI_RegDef_t *pSPIx, uint8_t EnorDi)
  *******************************************************************************/
 void SPI_Init(SPI_Handle_t *pSPIHandle )
 {
+	//Peripheral clock enable
+	SPI_PeriClockControl(pSPIHandle->pSPIx, ENABLE);
+
 	//Configure SPI_CR1 register
 	uint32_t tempreg = 0;
 
@@ -219,6 +222,35 @@ void SPI_ReceiveData(SPI_RegDef_t *pSPIx, uint8_t *pRxBuffer, uint32_t Len)
 
 }
 
+/*
+ * IRQ Configuration and ISR handling
+ */
+
+/********************************************************************************
+ * @fn				- SPI_IRQInterruptConfig
+ *
+ * @brief          	-
+ *
+ * @param[in]	   	-
+ * @param[in]		-
+ * @param[in]		-
+ *
+ * @return			-
+ *
+ * @Note			-
+ *
+ *******************************************************************************/
+void SPI_PeripheralControl(SPI_RegDef_t *pSPIx, uint8_t EnOrDi)
+{
+	if(EnOrDi == ENABLE)
+	{
+		pSPIx->CR1 |= (1 << SPI_CR1_SPE);
+	}
+	else
+	{
+		pSPIx->CR1 &= ~(1 << SPI_CR1_SPE);
+	}
+}
 
 /*
  * IRQ Configuration and ISR handling
