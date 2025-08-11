@@ -146,6 +146,15 @@ void SPI_DeInit(SPI_RegDef_t *pSPIx)
 		pSPIx->DR = 0;
 }
 
+uint8_t SPI_GetFlagStatus(SPI_RegDef_t *pSPIx, uint32_t FlagName)
+{
+	if(pSPIx->SR & FlagName)
+	{
+		return FLAG_SET;
+	}
+	return FLAG_RESET;
+}
+
 /*
  * Data Send and Receive
  */
@@ -161,12 +170,34 @@ void SPI_DeInit(SPI_RegDef_t *pSPIx)
  *
  * @return			-
  *
- * @Note			-
+ * @Note			- This is blocking call
  *
  *******************************************************************************/
 void SPI_SendData(SPI_RegDef_t *pSPIx, uint8_t *pTxBuffer, uint32_t Len)
 {
+	while(Len > 0)
+	{
+		// 1. Wait until TXE is set
+		while(SPI_GetFlagStatus(pSPIx,SPI_TXE_FLAG) == FLAG_RESET);
 
+		//2. Check the DFF bit i CR1
+		if(pSPIx->CR1 & ( 1 << SPI_CR1_DFF))
+		{
+			//16 bit dff
+			//1. Load the data in to the DR
+			pSPIx->DR = *((uint16_t*)pTxBuffer);
+			Len--;
+			Len--;
+			(uint16_t*)pTxBuffer++;
+		}
+		else
+		{
+			//8 bit DFF
+			pSPIx->DR = *pTxBuffer;
+			Len--;
+			pTxBuffer++;
+		}
+	}
 }
 
 /********************************************************************************
