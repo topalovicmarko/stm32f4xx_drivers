@@ -1,0 +1,5 @@
+../Src/006psi_txonly_arduino.c:11:6:delay	16	static
+../Src/006psi_txonly_arduino.c:24:6:SPI2_GPIOInits	24	static
+../Src/006psi_txonly_arduino.c:52:6:SPI2_Inits	24	static
+../Src/006psi_txonly_arduino.c:68:6:GPIO_ButtonInit	24	static
+../Src/006psi_txonly_arduino.c:83:5:main	24	static
