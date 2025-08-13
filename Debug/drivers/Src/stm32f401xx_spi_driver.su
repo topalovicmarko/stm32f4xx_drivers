@@ -4,9 +4,9 @@
 ../drivers/Src/stm32f401xx_spi_driver.c:152:9:SPI_GetFlagStatus	16	static
 ../drivers/Src/stm32f401xx_spi_driver.c:179:6:SPI_SendData	24	static
 ../drivers/Src/stm32f401xx_spi_driver.c:220:6:SPI_ReceiveData	24	static
-../drivers/Src/stm32f401xx_spi_driver.c:243:6:SPI_PeripheralControl	16	static
-../drivers/Src/stm32f401xx_spi_driver.c:270:6:SPI_SSIConfig	16	static
-../drivers/Src/stm32f401xx_spi_driver.c:296:6:SPI_SSOEConfig	16	static
-../drivers/Src/stm32f401xx_spi_driver.c:326:6:SPI_IRQInterruptConfig	16	static
-../drivers/Src/stm32f401xx_spi_driver.c:345:6:SPI_IRQPriorityConfig	16	static
-../drivers/Src/stm32f401xx_spi_driver.c:364:6:SPI_IRQHandling	16	static
+../drivers/Src/stm32f401xx_spi_driver.c:265:6:SPI_PeripheralControl	16	static
+../drivers/Src/stm32f401xx_spi_driver.c:292:6:SPI_SSIConfig	16	static
+../drivers/Src/stm32f401xx_spi_driver.c:318:6:SPI_SSOEConfig	16	static
+../drivers/Src/stm32f401xx_spi_driver.c:348:6:SPI_IRQInterruptConfig	16	static
+../drivers/Src/stm32f401xx_spi_driver.c:367:6:SPI_IRQPriorityConfig	16	static
+../drivers/Src/stm32f401xx_spi_driver.c:386:6:SPI_IRQHandling	16	static
