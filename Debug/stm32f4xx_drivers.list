@@ -27,25 +27,25 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  11 .ARM.attributes 0000002a  00000000  00000000  00001f7c  2**0
                   CONTENTS, READONLY
- 12 .debug_info   00001367  00000000  00000000  00001fa6  2**0
+ 12 .debug_info   00001616  00000000  00000000  00001fa6  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_abbrev 000004c2  00000000  00000000  0000330d  2**0
+ 13 .debug_abbrev 0000053a  00000000  00000000  000035bc  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_aranges 00000158  00000000  00000000  000037d0  2**3
+ 14 .debug_aranges 000001a0  00000000  00000000  00003af8  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_rnglists 000000f5  00000000  00000000  00003928  2**0
+ 15 .debug_rnglists 0000012e  00000000  00000000  00003c98  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_macro  000022ea  00000000  00000000  00003a1d  2**0
+ 16 .debug_macro  0000235a  00000000  00000000  00003dc6  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   000019a8  00000000  00000000  00005d07  2**0
+ 17 .debug_line   00001c17  00000000  00000000  00006120  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    0000967a  00000000  00000000  000076af  2**0
+ 18 .debug_str    00009808  00000000  00000000  00007d37  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000043  00000000  00000000  00010d29  2**0
+ 19 .comment      00000043  00000000  00000000  0001153f  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  000004c8  00000000  00000000  00010d6c  2**2
+ 20 .debug_frame  00000620  00000000  00000000  00011584  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .debug_line_str 00000061  00000000  00000000  00011234  2**0
+ 21 .debug_line_str 00000061  00000000  00000000  00011ba4  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -197,42 +197,42 @@ void SPI2_GPIOInits()
 void SPI2_Inits(void)
 {
  800026c:	b580      	push	{r7, lr}
- 800026e:	b084      	sub	sp, #16
+ 800026e:	b088      	sub	sp, #32
  8000270:	af00      	add	r7, sp, #0
 	SPI_Handle_t SPI2handle;
 
 	SPI2handle.pSPIx = SPI2;
  8000272:	4b0c      	ldr	r3, [pc, #48]	@ (80002a4 <SPI2_Inits+0x38>)
- 8000274:	607b      	str	r3, [r7, #4]
+ 8000274:	603b      	str	r3, [r7, #0]
 	SPI2handle.SPIConfig.SPI_BusConfig = SPI_BUS_CONFIG_FD;
  8000276:	2301      	movs	r3, #1
- 8000278:	727b      	strb	r3, [r7, #9]
+ 8000278:	717b      	strb	r3, [r7, #5]
 	SPI2handle.SPIConfig.SPI_DeviceMode = SPI_DEVICE_MODE_MASTER;
  800027a:	2301      	movs	r3, #1
- 800027c:	723b      	strb	r3, [r7, #8]
+ 800027c:	713b      	strb	r3, [r7, #4]
 	SPI2handle.SPIConfig.SPI_SclkSpeed = SPI_SCLK_SPEED_DIV8;	//generates sclk 2Mhz
  800027e:	2302      	movs	r3, #2
- 8000280:	72bb      	strb	r3, [r7, #10]
+ 8000280:	71bb      	strb	r3, [r7, #6]
 	SPI2handle.SPIConfig.SPI_DFF = SPI_DFF_8BITS;
  8000282:	2300      	movs	r3, #0
- 8000284:	72fb      	strb	r3, [r7, #11]
+ 8000284:	71fb      	strb	r3, [r7, #7]
 	SPI2handle.SPIConfig.SPI_CPOL = SPI_CPOL_LOW;
  8000286:	2300      	movs	r3, #0
- 8000288:	733b      	strb	r3, [r7, #12]
+ 8000288:	723b      	strb	r3, [r7, #8]
 	SPI2handle.SPIConfig.SPI_CPHA = SPI_CPHA_LOW;
  800028a:	2300      	movs	r3, #0
- 800028c:	737b      	strb	r3, [r7, #13]
+ 800028c:	727b      	strb	r3, [r7, #9]
 	SPI2handle.SPIConfig.SPI_SSM = SPI_SSM_DI ;	//Hardware slave managment enabled for NSS pin
  800028e:	2300      	movs	r3, #0
- 8000290:	73bb      	strb	r3, [r7, #14]
+ 8000290:	72bb      	strb	r3, [r7, #10]
 
 	SPI_Init(&SPI2handle);
- 8000292:	1d3b      	adds	r3, r7, #4
+ 8000292:	463b      	mov	r3, r7
  8000294:	4618      	mov	r0, r3
  8000296:	f000 fd1b 	bl	8000cd0 <SPI_Init>
 }
  800029a:	bf00      	nop
- 800029c:	3710      	adds	r7, #16
+ 800029c:	3720      	adds	r7, #32
  800029e:	46bd      	mov	sp, r7
  80002a0:	bd80      	pop	{r7, pc}
  80002a2:	bf00      	nop
