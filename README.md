@@ -11,19 +11,6 @@ This repository contains bare-metal drivers for STM32F4xx microcontrollers writt
 ## Project Structure
 
 ```text
-# Bare-Metal STM32 Driver Development (Embedded C)
-
-## Overview
-This repository contains bare-metal drivers for STM32F4xx microcontrollers written in Embedded C. The drivers provide low-level access to peripherals without relying on HAL or other abstraction layers.
-
-## Features
-- **GPIO Driver**: Pin configuration, digital I/O, interrupt handling
-- **Register-level access**: Direct hardware control
-- **Minimal dependencies**: No external libraries required
-
-## Project Structure
-
-```text
 stm32f4xx_drivers/
 │
 ├── 📁 drivers/                  # Peripheral driver implementations
@@ -50,7 +37,6 @@ stm32f4xx_drivers/
 │   └── 008_spi_message_rcv_it.c     # SPI receive via interrupt
 │
 └── 📄 README.md                 # Project documentation
-
 ```
 
 ## Getting Started
