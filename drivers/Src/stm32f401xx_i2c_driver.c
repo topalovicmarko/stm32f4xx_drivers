@@ -370,26 +370,56 @@ void I2C_MasterReceiveData(I2C_Handle_t *pI2CHandle, uint8_t *pRxbuffer, uint32_
 		//Disable Acking
 		I2C_ManageAcking(pI2CHandle->pI2Cx, I2C_ACK_DISABLE);
 
-		//generate STOP condition
-		I2C_GenerateStopCondition(pI2CHandle->pI2Cx);
-
 		//Clear the ADDR flag
 		I2C_ClearADDRFlag(pI2CHandle->pI2Cx);
 
 		//wait until RXNE becomes 1
 		while(! I2C_GetFlagStatus(pI2CHandle->pI2Cx,I2C_FLAG_RXNE));
 
+		//generate STOP condition
+		I2C_GenerateStopCondition(pI2CHandle->pI2Cx);
+
 		//read data in to buffer
 		*pRxbuffer = pI2CHandle->pI2Cx->DR;
 
-		return;
 	}
 
 	//procedure to read data from slave when Len > 1
 	if(Len > 1)
 	{
-		//TODO
+		//Clear the ADDR flag
+		I2C_ClearADDRFlag(pI2CHandle->pI2Cx);
+
+		//read the data until Len becomes zero
+		for(uint32_t i = Len; i > 0; i--)
+		{
+			//wait until RXNE becomes 1
+			while(! I2C_GetFlagStatus(pI2CHandle->pI2Cx,I2C_FLAG_RXNE));
+
+			if(i == 2)	//if last bytes are remaing
+			{
+				//Disable Acking
+				I2C_ManageAcking(pI2CHandle->pI2Cx, I2C_ACK_DISABLE);
+
+				//generate STOP condition
+				I2C_GenerateStopCondition(pI2CHandle->pI2Cx);
+
+			}
+
+			//read the data from data register in to buffer
+			*pRxbuffer = pI2CHandle->pI2Cx->DR;
+
+			//increment the buffer address
+			pRxbuffer++;
+		}
 	}
+
+	//re-enable ACKing
+	if(pI2CHandle->I2C_Config.I2C_ACKControl == I2C_ACK_ENABLE)
+	{
+		I2C_ManageAcking(pI2CHandle->pI2Cx, I2C_ACK_ENABLE);
+	}
+
 }
 
 void I2C_ManageAcking(I2C_RegDef_t *pI2Cx, uint8_t EnOrDi)
