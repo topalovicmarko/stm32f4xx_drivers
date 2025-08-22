@@ -53,7 +53,7 @@ static void I2C_GenerateStopCondition(I2C_RegDef_t *pI2Cx)
  * @Note			-
  *
  *******************************************************************************/
-void I2C_I2C_PeripheralControl(I2C_RegDef_t *pI2Cx, uint8_t EnorDi)
+void I2C_PeripheralControl(I2C_RegDef_t *pI2Cx, uint8_t EnorDi)
 {
 	if(EnorDi == ENABLE)
 		{
@@ -183,6 +183,9 @@ uint32_t RCC_GetPLCK1Value(void)
 void I2C_Init(I2C_Handle_t *pI2CHandle )
 {
 	uint32_t tempreg = 0;
+
+	//Enable the clock for i2cx peripheral
+	I2C_PeriClockControl(pI2CHandle->pI2Cx, ENABLE);
 
 	//ack control bit
 	tempreg |= pI2CHandle -> I2C_Config.I2C_ACKControl << 10 ;

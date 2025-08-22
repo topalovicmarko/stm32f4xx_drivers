@@ -5,13 +5,13 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../Src/008spi_message_rcv_it.c 
+../Src/009i2c_master_tx_testing.c 
 
 OBJS += \
-./Src/008spi_message_rcv_it.o 
+./Src/009i2c_master_tx_testing.o 
 
 C_DEPS += \
-./Src/008spi_message_rcv_it.d 
+./Src/009i2c_master_tx_testing.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -21,7 +21,7 @@ Src/%.o Src/%.su Src/%.cyclo: ../Src/%.c Src/subdir.mk
 clean: clean-Src
 
 clean-Src:
-	-$(RM) ./Src/008spi_message_rcv_it.cyclo ./Src/008spi_message_rcv_it.d ./Src/008spi_message_rcv_it.o ./Src/008spi_message_rcv_it.su
+	-$(RM) ./Src/009i2c_master_tx_testing.cyclo ./Src/009i2c_master_tx_testing.d ./Src/009i2c_master_tx_testing.o ./Src/009i2c_master_tx_testing.su
 
 .PHONY: clean-Src
 
